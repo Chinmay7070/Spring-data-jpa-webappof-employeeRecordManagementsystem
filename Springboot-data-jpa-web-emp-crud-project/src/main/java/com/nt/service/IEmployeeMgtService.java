@@ -9,4 +9,10 @@ public interface IEmployeeMgtService {
 	public List<Employee> fetchAllEmp();
 	
 	public String registerEmployee(Employee emp);
+	
+	public Employee getEmpByNo(int no);
+	
+	public String updateEmployee(Employee emp);
+	
+	public String deleteEmp(int no);
 }

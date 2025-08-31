@@ -191,6 +191,7 @@
 </c:choose>
 
 <center>
+  <h2 style="text-align:center;color:green">${resultMsg}</h2>
     <a href="./" class="home-link">HOME</a>
 </center>
 
