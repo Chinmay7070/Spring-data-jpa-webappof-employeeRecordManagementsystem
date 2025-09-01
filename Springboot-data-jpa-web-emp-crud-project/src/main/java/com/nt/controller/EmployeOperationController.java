@@ -23,6 +23,8 @@ public class EmployeOperationController {
 	
 	@Autowired
 	private IEmployeeMgtService service;
+	@Autowired
+	private IEmployeeMgtService dservice;
 	@GetMapping("/")
    public String showHowe() {
 	   return "welcome";
@@ -91,4 +93,11 @@ public class EmployeOperationController {
 		attrs.addFlashAttribute("resultMsg",msg);
 		return "redirect:report";
 	}
+	
+	@ModelAttribute("dnoList")
+	public List<Integer> populateDeptsNmaes(){
+		List<Integer> dnoListe = dservice. showAllDeptNo();
+		return dnoListe;
+	}
+	
 }

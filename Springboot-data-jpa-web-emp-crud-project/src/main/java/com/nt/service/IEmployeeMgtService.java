@@ -15,4 +15,6 @@ public interface IEmployeeMgtService {
 	public String updateEmployee(Employee emp);
 	
 	public String deleteEmp(int no);
+	
+	public List<Integer> showAllDeptNo();
 }

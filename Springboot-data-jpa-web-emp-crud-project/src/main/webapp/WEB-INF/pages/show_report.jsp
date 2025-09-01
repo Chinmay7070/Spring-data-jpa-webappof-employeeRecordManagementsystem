@@ -161,7 +161,9 @@
                <th>EMPNAME</th>
                <th>JOB</th>
                <th>SALARY</th>
+               <th>DEPTNO</th>
                <th>OPERATIONS</th>
+               
            </tr>
 
            <!-- Existing Records -->
@@ -171,6 +173,7 @@
                    <td>${emp.ename}</td>
                    <td>${emp.job}</td>
                    <td>${emp.sal}</td>
+                      <td>${emp.deptno}</td>
                    <td>
                        <div class="actions">
                            <a href="edit?no=${emp.empno}" class="btn btn-edit">

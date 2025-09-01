@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nt.model.Employee;
+import com.nt.repository.IDepartmanetRepo;
 import com.nt.repository.IEmployeeRepo;
 
 @Service("empService")
@@ -14,6 +15,8 @@ public class EmployeeMgtImpl implements IEmployeeMgtService {
 
 	@Autowired
 	private IEmployeeRepo emprepo;
+	@Autowired
+	private IDepartmanetRepo deptrepo;
 	@Override
 	public List<Employee> fetchAllEmp() {
 		
@@ -47,6 +50,11 @@ public class EmployeeMgtImpl implements IEmployeeMgtService {
 	public String deleteEmp(int no) {
 		emprepo.deleteById(no);
 		return "Employee is deleted ";
+	}
+	@Override
+	public List<Integer> showAllDeptNo() {
+		List<Integer> list = deptrepo.fetchAllDeptNo();
+		return list;
 	}
 
 }

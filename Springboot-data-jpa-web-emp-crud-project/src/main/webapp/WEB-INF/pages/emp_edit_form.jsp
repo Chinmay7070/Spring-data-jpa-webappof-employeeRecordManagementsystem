@@ -77,6 +77,13 @@
             <label class="form-label">Salary</label>
             <form:input path="sal" cssClass="form-control" placeholder="Enter salary"/>
         </div>
+        <div class="mb-3">
+    <label for="deptno" class="form-label">Department Number</label>
+    <form:select path="deptno" id="deptno" cssClass="form-select">
+        <form:options items="${dnoList}" />
+    </form:select>
+</div>
+        
 
         <!-- Submit -->
         <div class="text-center">
