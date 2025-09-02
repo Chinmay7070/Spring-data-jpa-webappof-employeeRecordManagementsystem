@@ -32,4 +32,6 @@ public class Employee implements Serializable {
     private String status = "active";
     private Integer deptno;
 
+	
+
 }

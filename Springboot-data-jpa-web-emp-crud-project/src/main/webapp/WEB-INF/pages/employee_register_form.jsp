@@ -84,23 +84,30 @@
     <h1>Employee Registration</h1>
 
     <form:form modelAttribute="emp" >
-
+       <%-- 
+       <p style="color:red">
+           <form:errors path="*"></form:errors>
+       </p> --%>
+           
         <!-- Employee Name -->
         <div class="mb-3">
             <label class="form-label">Employee Name</label>
-            <form:input path="ename" cssClass="form-control" placeholder="Enter employee name"/>
+            <form:input path="ename" cssClass="form-control" placeholder="Enter employee name"/>   
+            <form:errors path="ename" cssClass="text-danger"/>
         </div>
 
         <!-- Job -->
         <div class="mb-3">
             <label class="form-label">Job</label>
             <form:input path="job" cssClass="form-control" placeholder="Enter job title"/>
+            <form:errors path="job" cssClass="text-danger"/>
         </div>
 
         <!-- Salary -->
         <div class="mb-3">
             <label class="form-label">Salary</label>
             <form:input path="sal" cssClass="form-control" placeholder="Enter salary"/>
+           <form:errors path="sal" cssClass="text-danger"/>
         </div>
         
        <div class="mb-3">

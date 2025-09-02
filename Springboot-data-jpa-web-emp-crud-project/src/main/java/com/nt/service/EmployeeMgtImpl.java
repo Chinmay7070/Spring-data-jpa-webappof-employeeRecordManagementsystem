@@ -56,5 +56,13 @@ public class EmployeeMgtImpl implements IEmployeeMgtService {
 		List<Integer> list = deptrepo.fetchAllDeptNo();
 		return list;
 	}
+	@Override
+	public boolean isDesigInRejectedList(String desg) {
+		if(desg.equalsIgnoreCase("TeamLeader")) {
+			return true;
+		}
+		else
+			return false;
+	}
 
 }

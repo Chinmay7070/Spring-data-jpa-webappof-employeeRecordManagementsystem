@@ -54,36 +54,47 @@
 <div class="form-container">
     <h1>Employee Edit</h1>
 
-    <form:form modelAttribute="emp" >
-    <div class="mb-3">
+    <form:form modelAttribute="emp" method="post">
+     
+     <%--   <p style="color:red">
+           <form:errors path="*"></form:errors>
+       </p> --%>
+       
+       <div class="mb-3">
             <label class="form-label">Employee no</label>
-            <form:input path="empno" readonly="true"   cssClass="form-control" placeholder="Enter employee name"/>
+            <form:input path="empno" readonly="true" cssClass="form-control" placeholder="Enter employee number"/>
+            <form:errors path="empno" cssClass="text-danger"/>
         </div>
 
         <!-- Employee Name -->
         <div class="mb-3">
             <label class="form-label">Employee Name</label>
             <form:input path="ename" cssClass="form-control" placeholder="Enter employee name"/>
+            <form:errors path="ename" cssClass="text-danger"/>
         </div>
 
         <!-- Job -->
         <div class="mb-3">
             <label class="form-label">Job</label>
             <form:input path="job" cssClass="form-control" placeholder="Enter job title"/>
+            <form:errors path="job" cssClass="text-danger"/>
         </div>
 
         <!-- Salary -->
         <div class="mb-3">
             <label class="form-label">Salary</label>
             <form:input path="sal" cssClass="form-control" placeholder="Enter salary"/>
+            <form:errors path="sal" cssClass="text-danger"/>
         </div>
+
+        <!-- Department -->
         <div class="mb-3">
-    <label for="deptno" class="form-label">Department Number</label>
-    <form:select path="deptno" id="deptno" cssClass="form-select">
-        <form:options items="${dnoList}" />
-    </form:select>
-</div>
-        
+            <label for="deptno" class="form-label">Department Number</label>
+            <form:select path="deptno" id="deptno" cssClass="form-select">
+                <form:options items="${dnoList}" />
+            </form:select>
+            <form:errors path="deptno" cssClass="text-danger"/>
+        </div>
 
         <!-- Submit -->
         <div class="text-center">

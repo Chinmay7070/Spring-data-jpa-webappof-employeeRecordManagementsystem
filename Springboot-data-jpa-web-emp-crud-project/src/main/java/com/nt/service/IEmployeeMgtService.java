@@ -17,4 +17,6 @@ public interface IEmployeeMgtService {
 	public String deleteEmp(int no);
 	
 	public List<Integer> showAllDeptNo();
+	
+	public boolean isDesigInRejectedList(String desg);
 }
