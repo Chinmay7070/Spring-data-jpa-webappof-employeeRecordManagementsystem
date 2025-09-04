@@ -1,10 +1,14 @@
- package com.nt.controller;
+package com.nt.controller;
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;   // ✅ correct
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +23,7 @@ import com.nt.validate.EmployeeValidator;
 
 import jakarta.servlet.http.HttpSession;
 
+
 @Controller
 public class EmployeOperationController {
 
@@ -32,6 +37,18 @@ public class EmployeOperationController {
    public String showHowe() {
 	   return "welcome";
    }
+	
+	@GetMapping("/report_pagination")
+	public String showReportByPagination(
+	        Map<String, Object> map,
+	        @PageableDefault(page = 0, size = 3, sort = "job", direction = Sort.Direction.ASC) Pageable pageable) {
+	    
+	    Page<Employee> page = service.showEmployeeByPagination(pageable);
+	    map.put("pagedata", page);
+	    
+	    return "show_report_pagination"; // fixed typo
+	}
+
 	
 	@GetMapping("/report")
 	public String showReport(Map<String,Object> map) {
@@ -125,5 +142,8 @@ public class EmployeOperationController {
 		List<Integer> dnoListe = dservice. showAllDeptNo();
 		return dnoListe;
 	}
+	
+	
+	
 	
 }

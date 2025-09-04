@@ -20,15 +20,15 @@
             border-radius: 20px;
             box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
             text-align: center;
-            width: 400px;
+            width: 450px;
         }
         h1 {
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         p {
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         img {
             width: 180px;
@@ -43,7 +43,7 @@
         }
         .btn {
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 15px;
             padding: 12px 25px;
             background: #4CAF50;
             color: white;
@@ -54,6 +54,9 @@
         }
         .btn:hover {
             background: #388e3c;
+        }
+        .section {
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -67,6 +70,15 @@
     </a>
     <br>
     <a href="report" class="btn">View Report</a>
+
+    <div class="section">
+        <h1>Report by Pagination</h1>
+        <a href="report_pagination">
+            <img src="images/report.jpg" alt="Report Pagination">
+        </a>
+        <br>
+        <a href="report_pagination" class="btn">View Paginated Report</a>
+    </div>
 </div>
 
 </body>

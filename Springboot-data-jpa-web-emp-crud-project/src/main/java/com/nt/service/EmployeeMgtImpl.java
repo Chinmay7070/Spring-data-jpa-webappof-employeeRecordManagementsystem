@@ -1,7 +1,9 @@
 package com.nt.service;
 
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,9 @@ import org.springframework.stereotype.Service;
 import com.nt.model.Employee;
 import com.nt.repository.IDepartmanetRepo;
 import com.nt.repository.IEmployeeRepo;
+import org.springframework.data.domain.Page;
+
+
 
 @Service("empService")
 public class EmployeeMgtImpl implements IEmployeeMgtService {
@@ -64,5 +69,16 @@ public class EmployeeMgtImpl implements IEmployeeMgtService {
 		else
 			return false;
 	}
+	@Override
+	public Page<Employee> showEmployeeByPagination(Pageable pageable) {
+		  Page<Employee> page = emprepo.findAll(pageable);
+	       return page;
+	}
+	
+	
+
+	
+	
+	
 
 }
