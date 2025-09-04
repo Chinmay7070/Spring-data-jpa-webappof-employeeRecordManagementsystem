@@ -6,7 +6,8 @@
     <title>Employee Registration</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <script type="text/javascript" src="js/Validation.js"></script>
+    
     <style>
         body {
             background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
@@ -54,7 +55,7 @@
 <div class="form-container">
     <h1>Employee Edit</h1>
 
-    <form:form modelAttribute="emp" method="post">
+    <form:form modelAttribute="emp" method="post"  onsubmit="return validateForm(this)">
      
      <%--   <p style="color:red">
            <form:errors path="*"></form:errors>
@@ -71,6 +72,7 @@
             <label class="form-label">Employee Name</label>
             <form:input path="ename" cssClass="form-control" placeholder="Enter employee name"/>
             <form:errors path="ename" cssClass="text-danger"/>
+             <span id="enameErr" class="text-danger"></span>
         </div>
 
         <!-- Job -->
@@ -78,6 +80,7 @@
             <label class="form-label">Job</label>
             <form:input path="job" cssClass="form-control" placeholder="Enter job title"/>
             <form:errors path="job" cssClass="text-danger"/>
+             <span id="jobErr" class="text-danger"></span>
         </div>
 
         <!-- Salary -->
@@ -85,6 +88,7 @@
             <label class="form-label">Salary</label>
             <form:input path="sal" cssClass="form-control" placeholder="Enter salary"/>
             <form:errors path="sal" cssClass="text-danger"/>
+             <span id="salErr" class="text-danger"></span>
         </div>
 
         <!-- Department -->
@@ -94,7 +98,12 @@
                 <form:options items="${dnoList}" />
             </form:select>
             <form:errors path="deptno" cssClass="text-danger"/>
+             <span id="deptnoErr" class="text-danger"></span>
         </div>
+
+         <div>
+               <form:hidden path="vflag1"></form:hidden>
+         </div>
 
         <!-- Submit -->
         <div class="text-center">

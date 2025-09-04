@@ -69,23 +69,23 @@ public class EmployeOperationController {
 	@PostMapping("/register")
 	public String processRegisterEmp(HttpSession ses,@ModelAttribute("emp") Employee emp,BindingResult errors) {
 		
-		if(empValidator.supports(emp.getClass())) {
-			empValidator.validate(emp, errors);
-			if(errors.hasErrors()) {
-				return "employee_register_form";
+		
+		if(emp.getVflag1().equalsIgnoreCase("no")) {
+			if(empValidator.supports(emp.getClass())) {
+				empValidator.validate(emp, errors);
+				if(errors.hasErrors()) {
+					return "employee_register_form";
+				}
 			}
 		}
+		
 		
 		if(service.isDesigInRejectedList(emp.getJob())) {
 			errors.rejectValue("job","emp.desg.reject");
 			return "employee_register_form";
 		}
-		
-		
 		String msg = service.registerEmployee(emp);
-		
 		ses.setAttribute("resultMsg", msg);
-	
 		return "redirect:report";
 	}
 	
@@ -98,11 +98,14 @@ public class EmployeOperationController {
 	}
 	@PostMapping("/edit")
 	public String showEditformPage(RedirectAttributes attrs,@ModelAttribute("emp") Employee emp,BindingResult errors) {
+		
+		if(emp.getVflag1().equalsIgnoreCase("no")) {
 		if(empValidator.supports(emp.getClass())) {
 			empValidator.validate(emp, errors);
 			if(errors.hasErrors()) {
 				return "employee_register_form";
 			}
+		}
 		}
 		
 		String msg = service.updateEmployee(emp);

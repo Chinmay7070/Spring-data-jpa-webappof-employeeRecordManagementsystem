@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.Data;
 
 @Data
@@ -31,7 +32,8 @@ public class Employee implements Serializable {
     private Double sal;
     private String status = "active";
     private Integer deptno;
-
-	
+    
+    @Transient
+    private String vflag1 = "no";
 
 }
